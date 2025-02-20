@@ -1,0 +1,126 @@
+/* src/components/Signup.css */
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Container tổng, chứa background và form */
+.signup-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://images.pexels.com/photos/1670977/pexels-photo-1670977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+    center center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wave màu đỏ (tùy chọn) */
+.signup-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: #ff5252;
+    z-index: 1;
+    clip-path: ellipse(70% 50% at 50% 70%);
+}
+
+/* Nút login ở góc phải trên cùng */
+.login-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 2;
+}
+.login-button span {
+    color: #ff5252;
+    cursor: pointer;
+    font-weight: bold;
+    background: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+.login-button span:hover {
+    background: #f0f0f0;
+}
+
+/* Form signup */
+.signup-form {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 400px;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.signup-form .logo {
+    margin-bottom: 16px;
+}
+.signup-form .logo img {
+    width: 50px;
+    height: 70px;
+}
+
+/* Tiêu đề */
+.signup-form h2 {
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+/* form-group (label + input) */
+.signup-form .form-group {
+    text-align: left;
+    margin-bottom: 16px;
+}
+.signup-form label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* Input bo tròn (capsule) */
+.signup-form input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #fff;
+    border-radius: 50px; /* bo tròn dạng capsule */
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+.signup-form input::placeholder {
+    color: #ccc; /* Màu placeholder */
+}
+
+/* Nút signup */
+.signup-btn {
+    width: 100%;
+    background: #ff7b7b;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px; /* bo tròn dạng capsule */
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 16px;
+}
+.signup-btn:hover {
+    background: #ff2222;
+}
