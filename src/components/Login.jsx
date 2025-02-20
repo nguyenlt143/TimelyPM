@@ -60,7 +60,7 @@ export default function Login({ onSwitchForm }) {
                             forgot password
                         </a>
                         <button type="submit" className="login-btn">
-                            login &nbsp; &gt;
+                             Login
                         </button>
                     </div>
                 </form>

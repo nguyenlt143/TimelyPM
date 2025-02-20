@@ -9,13 +9,20 @@ export default function Signup({ onSwitchForm }) {
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
 
+    // Hàm xử lý signup
     const handleSignup = (e) => {
         e.preventDefault();
         console.log("Full Name:", fullName);
         console.log("Email:", email);
         console.log("Password:", password);
         console.log("Re-enter password:", rePassword);
-        // Xử lý đăng ký (gọi API, v.v.)
+        // Gọi API đăng ký...
+    };
+
+    // Hàm xử lý nút "Login with Google"
+    const handleGoogleLogin = () => {
+        console.log("Google Signup");
+        // Gọi API Google OAuth, v.v.
     };
 
     return (
@@ -30,6 +37,7 @@ export default function Signup({ onSwitchForm }) {
                     <img src={MyLogo} alt="logo" />
                 </div>
                 <h2>Create an Account</h2>
+
                 <form onSubmit={handleSignup}>
                     <div className="form-group">
                         <label htmlFor="fullName">Full name</label>
@@ -48,7 +56,7 @@ export default function Signup({ onSwitchForm }) {
                         <input
                             id="email"
                             type="email"
-                            placeholder="you@yourmail.com"
+                            placeholder="You@yourmail.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -60,7 +68,7 @@ export default function Signup({ onSwitchForm }) {
                         <input
                             id="password"
                             type="password"
-                            placeholder="password"
+                            placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -83,6 +91,15 @@ export default function Signup({ onSwitchForm }) {
                         Sign up
                     </button>
                 </form>
+
+                {/* Nút Google giống bên Login */}
+                <div className="google-login" onClick={handleGoogleLogin}>
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+                        alt="google-icon"
+                    />
+                    <span>Login with Google</span>
+                </div>
             </div>
         </div>
     );
