@@ -1,8 +1,14 @@
 spring:
-  sql:
-    init:
-      mode: never
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt_security
+    username: postgres
+    password: Abcd@12345
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
