@@ -5,11 +5,14 @@ import dev.fpt.web_app.application.dto.request.GetIssueRequest;
 import dev.fpt.web_app.application.dto.request.UpdateIssueStatusRequest;
 import dev.fpt.web_app.application.dto.response.GetIssueResponse;
 import dev.fpt.web_app.application.service.IssueService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Validated
 @RestController
 @RequestMapping("/api/issues")
 public class IssueController {
@@ -22,18 +25,17 @@ public class IssueController {
     }
 
     @PostMapping("/search")
-    public Page<GetIssueResponse> getIssues(@RequestBody GetIssueRequest request, Pageable pageable) {
+    public Page<GetIssueResponse> getIssues(@Valid  @RequestBody GetIssueRequest request, Pageable pageable) {
         return issueService.getIssues(request, pageable);
     }
 
-    // Get a single issue by id
     @GetMapping("/{id}")
     public GetIssueResponse getIssueById(@PathVariable Long id) {
         return issueService.getIssueById(id);
     }
 
     @PutMapping("/update-status")
-    public GetIssueResponse updateIssueStatus(@RequestBody UpdateIssueStatusRequest request) {
+    public GetIssueResponse updateIssueStatus(@Valid @RequestBody UpdateIssueStatusRequest request) {
         return issueService.updateIssueStatus(request);
     }
 

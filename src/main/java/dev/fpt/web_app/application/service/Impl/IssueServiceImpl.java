@@ -1,8 +1,8 @@
 package dev.fpt.web_app.application.service.Impl;
 
+import dev.fpt.web_app.application.dto.request.AssignIssueRequest;
 import dev.fpt.web_app.application.dto.request.GetIssueRequest;
 import dev.fpt.web_app.application.dto.request.UpdateIssueStatusRequest;
-import dev.fpt.web_app.application.dto.request.AssignIssueRequest;
 import dev.fpt.web_app.application.dto.response.GetIssueResponse;
 import dev.fpt.web_app.application.service.IssueService;
 import dev.fpt.web_app.domain.entity.Issue;
@@ -78,10 +78,10 @@ public class IssueServiceImpl implements IssueService {
                 response.setProjectName(issue.getProject().getProjectName());
             }
             if (issue.getAssignedTo() != null) {
-                response.setAssignedToName(issue.getAssignedTo().getUserName());
+                response.setAssignedToName(issue.getAssignedTo().getUsername());
             }
             if (issue.getReportedBy() != null) {
-                response.setReportedByName(issue.getReportedBy().getUserName());
+                response.setReportedByName(issue.getReportedBy().getUsername());
             }
             if (issue.getPriority() != null) {
                 response.setPriorityName(issue.getPriority().getPriorityName());
@@ -97,8 +97,8 @@ public class IssueServiceImpl implements IssueService {
                 .orElseThrow(() -> new RuntimeException("Issue not found with id " + id));
         GetIssueResponse response = modelMapper.map(issue, GetIssueResponse.class);
         response.setProjectName(issue.getProject().getProjectName());
-        response.setAssignedToName(issue.getAssignedTo().getUserName());
-        response.setReportedByName(issue.getReportedBy().getUserName());
+        response.setAssignedToName(issue.getAssignedTo().getUsername());
+        response.setReportedByName(issue.getReportedBy().getPassword());
         response.setPriorityName(issue.getPriority().getPriorityName());
         response.setId(issue.getId());
         return response;
