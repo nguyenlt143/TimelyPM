@@ -1,8 +1,9 @@
 spring:
+  application.name: web_app
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
-    username: postgres
-    password: Abcd@12345
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -12,3 +13,25 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+        enabled: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GM_USERNAME}
+    password: ${GM_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+  token:
+    jwt:
+      secret-key: ${JWT_SECRET}
+      expiration-duration: 86400000 # 1 day for testing
+    expiration:
+      refresh: 2592000000 # 30 days
+      verification: "900000" # 15 minutes

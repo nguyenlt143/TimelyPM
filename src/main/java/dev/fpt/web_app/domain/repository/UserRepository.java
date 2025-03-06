@@ -1,4 +1,15 @@
 package dev.fpt.web_app.domain.repository;
 
-public interface UserRepository extends org.springframework.data.jpa.repository.JpaRepository<dev.fpt.web_app.domain.entity.User, java.lang.Long> {
-  }
+import dev.fpt.web_app.domain.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
+
+    Optional<User> findAllBy();
+}

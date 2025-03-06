@@ -1,5 +1,6 @@
 package dev.fpt.web_app.domain.entity;
 
+import dev.fpt.web_app.domain.enums.Topic_Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,8 @@ public class Topic {
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @Column(name = "topic_type")
-    private String topicType;
+    @Enumerated(EnumType.STRING)
+    private Topic_Type topic_type;
 
     @Column(name = "summary")
     private String summary;

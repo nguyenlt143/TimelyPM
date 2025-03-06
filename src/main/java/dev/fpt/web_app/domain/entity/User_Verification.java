@@ -1,5 +1,6 @@
 package dev.fpt.web_app.domain.entity;
 
+import dev.fpt.web_app.domain.enums.Otp_Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,8 @@ public class User_Verification {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "otp_type")
-    private String otpType;
+    @Enumerated(EnumType.STRING)
+    private Otp_Type otpType;
 
     @Column(name = "otp_code")
     private String otpCode;

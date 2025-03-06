@@ -2,10 +2,7 @@ package dev.fpt.web_app.domain.entity;
 
 import dev.fpt.web_app.domain.enums.Role_Type;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
@@ -15,6 +12,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "role")
+@Builder
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +20,7 @@ public class Role {
     private Long RoleId;
 
     @Column(name = "role_name", nullable = false, unique = true)
-    private String RoleName;
+    private String roleName;
 
     @Column(name = "role_type")
     @Enumerated(EnumType.STRING)

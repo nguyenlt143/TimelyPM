@@ -1,4 +1,8 @@
 package dev.fpt.web_app.domain.enums;
 
-public class Topic_Type {
+public enum Topic_Type {
+    TASK,
+    ISSUE,
+    QUESTION,
+    REQUEST
 }
