@@ -11,15 +11,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@DiscriminatorValue("Task")
 public class Task extends Topic{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "task_id")
-    private Long id;
-
-    @OneToOne
-    @JoinColumn(name = "topic_id")
-    private Topic topic;
 
     @ManyToOne
     @JoinColumn(name = "status_id")
