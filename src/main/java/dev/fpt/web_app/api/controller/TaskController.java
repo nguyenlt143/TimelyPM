@@ -1,7 +1,7 @@
 package dev.fpt.web_app.api.controller;
 
 
-import dev.fpt.web_app.application.dto.request.GetTaskRequest;
+import dev.fpt.web_app.application.dto.request.*;
 import dev.fpt.web_app.application.dto.response.GetTaskResponse;
 import dev.fpt.web_app.application.service.TaskService;
 import jakarta.validation.Valid;
@@ -25,5 +25,15 @@ public class TaskController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         return taskService.searchTask(request, PageRequest.of(page, size));
+    }
+
+    @PutMapping("/update-status")
+    public GetTaskResponse updateTaskStatus(@Valid @RequestBody UpdateTaskStatusRequest request) {
+        return taskService.updateTaskStatus(request);
+    }
+
+    @PutMapping("/assign")
+    public GetTaskResponse assignIssue(@RequestBody AssignTaskRequest request) {
+        return taskService.assignIssue(request);
     }
 }
